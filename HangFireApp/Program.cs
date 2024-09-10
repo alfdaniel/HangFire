@@ -1,5 +1,4 @@
 using Hangfire;
-using HangFireApp.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -33,5 +32,10 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseHangfireDashboard("/job-Dash", new DashboardOptions {
+    DashboardTitle = "HangfireApp",
+    DisplayStorageConnectionString= false
+});
 
 app.Run();
